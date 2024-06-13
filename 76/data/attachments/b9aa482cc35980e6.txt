@@ -1,0 +1,58 @@
+[32mINFO    [0m integration.test_backups:test_backups.py:84 deleting the previously created backups
+[32mINFO    [0m pytest_operator.plugin:plugin.py:862 Model status:
+
+Model  Controller           Cloud/Region         Version  SLA          Timestamp
+test   localhost-localhost  localhost/localhost  3.1.8    unsupported  02:35:17Z
+
+App                       Version  Status   Scale  Charm                     Channel        Rev  Exposed  Message
+postgresql-gcp            14.11    active       2  postgresql                                 1  no       
+s3-integrator                      blocked      1  s3-integrator             latest/stable   17  no       Missing parameters: ['access-key', 'secret-key']
+self-signed-certificates           active       1  self-signed-certificates  latest/stable   72  no       
+
+Unit                         Workload  Agent  Machine  Public address  Ports     Message
+postgresql-gcp/0*            active    idle   5        10.225.52.230   5432/tcp  Primary
+postgresql-gcp/1             active    idle   6        10.225.52.2     5432/tcp  
+s3-integrator/0*             blocked   idle   0        10.225.52.98              Missing parameters: ['access-key', 'secret-key']
+self-signed-certificates/0*  active    idle   1        10.225.52.57              
+
+Machine  State    Address        Inst id        Base          AZ  Message
+0        started  10.225.52.98   juju-1bd6e0-0  ubuntu@22.04      Running
+1        started  10.225.52.57   juju-1bd6e0-1  ubuntu@22.04      Running
+5        started  10.225.52.230  juju-1bd6e0-5  ubuntu@22.04      Running
+6        started  10.225.52.2    juju-1bd6e0-6  ubuntu@22.04      Running
+
+[32mINFO    [0m pytest_operator.plugin:plugin.py:868 Juju error logs:
+
+machine-0: 01:38:43 ERROR juju.worker.dependency "lxd-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-0: 01:38:43 ERROR juju.worker.dependency "broker-tracker" manifold worker returned unexpected error: no container types determined
+machine-0: 01:38:43 ERROR juju.worker.dependency "kvm-container-provisioner" manifold worker returned unexpected error: container types not yet available
+unit-s3-integrator-0: 01:38:43 ERROR juju.worker.meterstatus error running "meter-status-changed": charm missing from disk
+machine-1: 01:38:44 ERROR juju.worker.dependency "lxd-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-1: 01:38:44 ERROR juju.worker.dependency "broker-tracker" manifold worker returned unexpected error: no container types determined
+machine-1: 01:38:44 ERROR juju.worker.dependency "kvm-container-provisioner" manifold worker returned unexpected error: container types not yet available
+unit-self-signed-certificates-0: 01:38:44 ERROR juju.worker.meterstatus error running "meter-status-changed": charm missing from disk
+machine-2: 01:38:55 ERROR juju.worker.dependency "kvm-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-2: 01:38:55 ERROR juju.worker.dependency "lxd-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-2: 01:38:55 ERROR juju.worker.dependency "broker-tracker" manifold worker returned unexpected error: no container types determined
+unit-postgresql-aws-0: 01:38:55 ERROR juju.worker.meterstatus error running "meter-status-changed": charm missing from disk
+machine-3: 01:38:56 ERROR juju.worker.dependency "lxd-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-3: 01:38:56 ERROR juju.worker.dependency "kvm-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-3: 01:38:56 ERROR juju.worker.dependency "broker-tracker" manifold worker returned unexpected error: no container types determined
+unit-postgresql-aws-1: 01:38:56 ERROR juju.worker.meterstatus error running "meter-status-changed": charm missing from disk
+unit-postgresql-aws-0: 02:02:21 ERROR juju.worker.dependency "uniter" manifold worker returned unexpected error: relation scope id "39014fbf-666e-4a63-8140-e7ed251bd6e0:r#5#self-signed-certificates": settings 39014fbf-666e-4a63-8140-e7ed251bd6e0:r#5#self-signed-certificates not found (not found)
+machine-4: 02:05:15 ERROR juju.worker.dependency "kvm-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-4: 02:05:15 ERROR juju.worker.dependency "broker-tracker" manifold worker returned unexpected error: no container types determined
+machine-4: 02:05:15 ERROR juju.worker.dependency "lxd-container-provisioner" manifold worker returned unexpected error: container types not yet available
+unit-postgresql-aws-2: 02:05:15 ERROR juju.worker.meterstatus error running "meter-status-changed": charm missing from disk
+unit-postgresql-aws-0: 02:09:58 ERROR juju.worker.dependency "uniter" manifold worker returned unexpected error: relation scope id "39014fbf-666e-4a63-8140-e7ed251bd6e0:r#4#s3-integrator": settings 39014fbf-666e-4a63-8140-e7ed251bd6e0:r#4#s3-integrator not found (not found)
+machine-2: 02:10:03 ERROR juju.api.watcher error trying to stop watcher: websocket: close sent
+machine-5: 02:13:06 ERROR juju.worker.dependency "broker-tracker" manifold worker returned unexpected error: no container types determined
+machine-5: 02:13:06 ERROR juju.worker.dependency "lxd-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-5: 02:13:06 ERROR juju.worker.dependency "kvm-container-provisioner" manifold worker returned unexpected error: container types not yet available
+unit-postgresql-gcp-0: 02:13:06 ERROR juju.worker.meterstatus error running "meter-status-changed": charm missing from disk
+machine-6: 02:14:13 ERROR juju.worker.dependency "broker-tracker" manifold worker returned unexpected error: no container types determined
+machine-6: 02:14:13 ERROR juju.worker.dependency "kvm-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-6: 02:14:13 ERROR juju.worker.dependency "lxd-container-provisioner" manifold worker returned unexpected error: container types not yet available
+unit-postgresql-gcp-1: 02:14:13 ERROR juju.worker.meterstatus error running "meter-status-changed": charm missing from disk
+
+[32mINFO    [0m pytest_operator.plugin:plugin.py:947 Forgetting model main...
