@@ -1,0 +1,46 @@
+[32mINFO    [0m integration.ha_tests.test_async_replication:test_async_replication.py:286 breaking the relations
+[32mINFO    [0m juju.model:model.py:2958 Waiting for model:
+  postgresql/0 [executing] active: 
+  postgresql/1 [executing] active: Standby Leader
+  postgresql/2 [executing] active: Standby Leader
+[32mINFO    [0m juju.model:model.py:2958 Waiting for model:
+  postgresql/0 [executing] active: 
+  postgresql/1 [executing] active: 
+  postgresql/2 [executing] active: Primary
+[32mINFO    [0m juju.model:model.py:2958 Waiting for model:
+  postgresql/0 [executing] blocked: Cluster in read-only mode
+  postgresql/1 [executing] blocked: Cluster in read-only mode
+  postgresql/2 [executing] maintenance: reconfiguring cluster
+[32mINFO    [0m juju.model:model.py:2958 Waiting for model:
+  postgresql/0 [executing] active: 
+  postgresql/1 [executing] active: 
+  postgresql/2 [executing] active: Primary
+[32mINFO    [0m juju.model:model.py:2958 Waiting for model:
+  postgresql/0 [executing] active: 
+  postgresql/1 [executing] active: 
+  postgresql/2 [executing] active: Primary
+[32mINFO    [0m juju.model:model.py:2958 Waiting for model:
+  postgresql/0 [executing] blocked: Cluster in read-only mode
+  postgresql/1 [executing] blocked: Cluster in read-only mode
+  postgresql/2 [executing] maintenance: reconfiguring cluster
+[32mINFO    [0m juju.model:model.py:2958 Waiting for model:
+  postgresql/2 [executing] maintenance: reconfiguring cluster
+[32mINFO    [0m juju.model:model.py:2958 Waiting for model:
+  postgresql/2 [executing] maintenance: reconfiguring cluster
+[32mINFO    [0m juju.model:model.py:2958 Waiting for model:
+  postgresql/2 [idle] blocked: Cluster in read-only mode
+[32mINFO    [0m integration.ha_tests.test_async_replication:test_async_replication.py:307 Get leader unit
+[32mINFO    [0m integration.ha_tests.test_async_replication:test_async_replication.py:310 promoting the first cluster
+[32mINFO    [0m juju.model:model.py:2958 Waiting for model:
+  postgresql/0 [idle] active: 
+  postgresql/1 [idle] active: 
+  postgresql/2 [idle] active: Primary
+[32mINFO    [0m juju.model:model.py:2958 Waiting for model:
+  postgresql/0 [executing] blocked: Cluster in read-only mode
+  postgresql/1 [executing] blocked: Cluster in read-only mode
+  postgresql/2 [executing] active: Primary
+[32mINFO    [0m juju.model:model.py:2958 Waiting for model:
+  postgresql/0 [idle] active: 
+  postgresql/1 [idle] active: Standby Leader
+  postgresql/2 [executing] maintenance: reconfiguring cluster
+[32mINFO    [0m integration.ha_tests.test_async_replication:test_async_replication.py:327 removing the previous data
