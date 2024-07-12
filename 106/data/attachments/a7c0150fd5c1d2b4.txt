@@ -1,0 +1,60 @@
+[32mINFO    [0m pytest_operator.plugin:plugin.py:862 Model status:
+
+Model  Controller           Cloud/Region         Version  SLA          Timestamp
+test   localhost-localhost  localhost/localhost  3.1.8    unsupported  01:53:29Z
+
+App                       Version  Status  Scale  Charm                     Channel        Rev  Exposed  Message
+postgresql                14.11    active      3  postgresql                                 0  no       
+self-signed-certificates           active      1  self-signed-certificates  latest/stable  155  no       
+
+Unit                         Workload  Agent  Machine  Public address  Ports     Message
+postgresql/0*                active    idle   0        10.50.10.172    5432/tcp  
+postgresql/1                 active    idle   1        10.50.10.109    5432/tcp  
+postgresql/2                 active    idle   2        10.50.10.23     5432/tcp  Primary
+self-signed-certificates/0*  active    idle   3        10.50.10.110              
+
+Machine  State    Address       Inst id        Base          AZ  Message
+0        started  10.50.10.172  juju-22d9e7-0  ubuntu@22.04      Running
+1        started  10.50.10.109  juju-22d9e7-1  ubuntu@22.04      Running
+2        started  10.50.10.23   juju-22d9e7-2  ubuntu@22.04      Running
+3        started  10.50.10.110  juju-22d9e7-3  ubuntu@22.04      Running
+
+[32mINFO    [0m pytest_operator.plugin:plugin.py:868 Juju error logs:
+
+machine-0: 01:30:55 ERROR juju.worker.dependency "broker-tracker" manifold worker returned unexpected error: no container types determined
+machine-0: 01:30:55 ERROR juju.worker.dependency "lxd-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-0: 01:30:55 ERROR juju.worker.dependency "kvm-container-provisioner" manifold worker returned unexpected error: container types not yet available
+unit-postgresql-0: 01:30:55 ERROR juju.worker.meterstatus error running "meter-status-changed": charm missing from disk
+machine-3: 01:30:56 ERROR juju.worker.dependency "lxd-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-3: 01:30:56 ERROR juju.worker.dependency "kvm-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-3: 01:30:56 ERROR juju.worker.dependency "broker-tracker" manifold worker returned unexpected error: no container types determined
+unit-self-signed-certificates-0: 01:30:57 ERROR juju.worker.meterstatus error running "meter-status-changed": charm missing from disk
+machine-1: 01:30:57 ERROR juju.worker.dependency "lxd-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-1: 01:30:57 ERROR juju.worker.dependency "broker-tracker" manifold worker returned unexpected error: no container types determined
+machine-1: 01:30:57 ERROR juju.worker.dependency "kvm-container-provisioner" manifold worker returned unexpected error: container types not yet available
+unit-postgresql-1: 01:30:58 ERROR juju.worker.meterstatus error running "meter-status-changed": charm missing from disk
+machine-2: 01:30:59 ERROR juju.worker.dependency "lxd-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-2: 01:30:59 ERROR juju.worker.dependency "kvm-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-2: 01:30:59 ERROR juju.worker.dependency "broker-tracker" manifold worker returned unexpected error: no container types determined
+unit-postgresql-2: 01:31:00 ERROR juju.worker.meterstatus error running "meter-status-changed": charm missing from disk
+unit-self-signed-certificates-0: 01:40:26 ERROR juju.worker.dependency "uniter" manifold worker returned unexpected error: relation scope id "8554a9be-74d7-44be-8403-e80bf722d9e7:r#3#postgresql": settings 8554a9be-74d7-44be-8403-e80bf722d9e7:r#3#postgresql not found (not found)
+unit-postgresql-1: 01:52:14 ERROR unit.postgresql/1.juju-log restart:1: Unable to reconnect to postgresql
+Traceback (most recent call last):
+  File "/var/lib/juju/agents/unit-postgresql-1/charm/./src/charm.py", line 1533, in _restart
+    assert False
+AssertionError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/lib/juju/agents/unit-postgresql-1/charm/./src/charm.py", line 1530, in _restart
+    for attempt in Retrying(wait=wait_fixed(3), stop=stop_after_delay(300)):
+  File "/var/lib/juju/agents/unit-postgresql-1/charm/venv/tenacity/__init__.py", line 437, in __iter__
+    do = self.iter(retry_state=retry_state)
+  File "/var/lib/juju/agents/unit-postgresql-1/charm/venv/tenacity/__init__.py", line 370, in iter
+    result = action(retry_state)
+  File "/var/lib/juju/agents/unit-postgresql-1/charm/venv/tenacity/__init__.py", line 413, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x7fe9ead58670 state=finished raised AssertionError>]
+
+[32mINFO    [0m pytest_operator.plugin:plugin.py:947 Forgetting model main...
