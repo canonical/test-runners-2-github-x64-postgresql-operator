@@ -1,0 +1,90 @@
+[32mINFO    [0m pytest_operator.plugin:plugin.py:862 Model status:
+
+Model  Controller           Cloud/Region         Version  SLA          Timestamp
+test   localhost-localhost  localhost/localhost  3.4.4    unsupported  02:08:13Z
+
+App         Version  Status  Scale  Charm       Channel  Rev  Exposed  Message
+postgresql  14.12    active      3  postgresql             0  no       
+
+Unit           Workload  Agent      Machine  Public address  Ports     Message
+postgresql/4   active    executing  4        10.66.176.239   5432/tcp  (get-primary) 
+postgresql/5   active    idle       5        10.66.176.128   5432/tcp  
+postgresql/6*  active    idle       6        10.66.176.250   5432/tcp  
+
+Machine  State    Address        Inst id        Base          AZ  Message
+4        started  10.66.176.239  juju-113e7f-4  ubuntu@22.04      Running
+5        started  10.66.176.128  juju-113e7f-5  ubuntu@22.04      Running
+6        started  10.66.176.250  juju-113e7f-6  ubuntu@22.04      Running
+
+[32mINFO    [0m pytest_operator.plugin:plugin.py:868 Juju error logs:
+
+machine-2: 01:38:42 ERROR juju.worker.dependency "lxd-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-2: 01:38:42 ERROR juju.worker.dependency "kvm-container-provisioner" manifold worker returned unexpected error: container types not yet available
+unit-postgresql-2: 01:38:42 ERROR juju.worker.meterstatus error running "meter-status-changed": charm missing from disk
+machine-1: 01:38:43 ERROR juju.worker.dependency "kvm-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-1: 01:38:43 ERROR juju.worker.dependency "lxd-container-provisioner" manifold worker returned unexpected error: container types not yet available
+unit-postgresql-1: 01:38:43 ERROR juju.worker.meterstatus error running "meter-status-changed": charm missing from disk
+machine-0: 01:38:47 ERROR juju.worker.dependency "kvm-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-0: 01:38:47 ERROR juju.worker.dependency "lxd-container-provisioner" manifold worker returned unexpected error: container types not yet available
+unit-postgresql-0: 01:38:47 ERROR juju.worker.meterstatus error running "meter-status-changed": charm missing from disk
+machine-4: 01:52:00 ERROR juju.worker.dependency "kvm-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-4: 01:52:00 ERROR juju.worker.dependency "lxd-container-provisioner" manifold worker returned unexpected error: container types not yet available
+unit-postgresql-4: 01:52:00 ERROR juju.worker.meterstatus error running "meter-status-changed": charm missing from disk
+machine-3: 01:52:04 ERROR juju.worker.dependency "lxd-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-3: 01:52:04 ERROR juju.worker.dependency "kvm-container-provisioner" manifold worker returned unexpected error: container types not yet available
+unit-postgresql-3: 01:52:04 ERROR juju.worker.meterstatus error running "meter-status-changed": charm missing from disk
+machine-6: 01:59:21 ERROR juju.worker.dependency "kvm-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-6: 01:59:21 ERROR juju.worker.dependency "lxd-container-provisioner" manifold worker returned unexpected error: container types not yet available
+unit-postgresql-6: 01:59:21 ERROR juju.worker.meterstatus error running "meter-status-changed": charm missing from disk
+machine-5: 01:59:29 ERROR juju.worker.dependency "kvm-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-5: 01:59:29 ERROR juju.worker.dependency "lxd-container-provisioner" manifold worker returned unexpected error: container types not yet available
+unit-postgresql-5: 01:59:30 ERROR juju.worker.meterstatus error running "meter-status-changed": charm missing from disk
+machine-1: 02:04:02 ERROR juju.api.watcher error trying to stop watcher: websocket: close sent
+unit-postgresql-6: 02:04:30 ERROR unit.postgresql/6.juju-log Failed to list PostgreSQL database users: could not translate host name "None" to address: Temporary failure in name resolution
+
+unit-postgresql-6: 02:04:35 ERROR unit.postgresql/6.juju-log Failed to list PostgreSQL database users: could not translate host name "None" to address: Temporary failure in name resolution
+
+unit-postgresql-6: 02:04:46 ERROR unit.postgresql/6.juju-log Failed to list PostgreSQL database users: could not translate host name "None" to address: Temporary failure in name resolution
+
+unit-postgresql-6: 02:04:55 ERROR unit.postgresql/6.juju-log Failed to list PostgreSQL database users: could not translate host name "None" to address: Temporary failure in name resolution
+
+unit-postgresql-6: 02:05:06 ERROR unit.postgresql/6.juju-log Failed to list PostgreSQL database users: could not translate host name "None" to address: Temporary failure in name resolution
+
+unit-postgresql-6: 02:05:17 ERROR unit.postgresql/6.juju-log Failed to list PostgreSQL database users: could not translate host name "None" to address: Temporary failure in name resolution
+
+unit-postgresql-6: 02:05:28 ERROR unit.postgresql/6.juju-log Failed to list PostgreSQL database users: could not translate host name "None" to address: Temporary failure in name resolution
+
+unit-postgresql-6: 02:05:36 ERROR unit.postgresql/6.juju-log Failed to list PostgreSQL database users: could not translate host name "None" to address: Temporary failure in name resolution
+
+unit-postgresql-6: 02:05:47 ERROR unit.postgresql/6.juju-log Failed to list PostgreSQL database users: could not translate host name "None" to address: Temporary failure in name resolution
+
+unit-postgresql-6: 02:05:58 ERROR unit.postgresql/6.juju-log Failed to list PostgreSQL database users: could not translate host name "None" to address: Temporary failure in name resolution
+
+unit-postgresql-6: 02:06:07 ERROR unit.postgresql/6.juju-log Failed to list PostgreSQL database users: could not translate host name "None" to address: Temporary failure in name resolution
+
+unit-postgresql-6: 02:06:18 ERROR unit.postgresql/6.juju-log Failed to list PostgreSQL database users: could not translate host name "None" to address: Temporary failure in name resolution
+
+unit-postgresql-6: 02:06:28 ERROR unit.postgresql/6.juju-log Failed to list PostgreSQL database users: could not translate host name "None" to address: Temporary failure in name resolution
+
+unit-postgresql-6: 02:06:39 ERROR unit.postgresql/6.juju-log Failed to list PostgreSQL database users: could not translate host name "None" to address: Temporary failure in name resolution
+
+unit-postgresql-6: 02:06:48 ERROR unit.postgresql/6.juju-log Failed to list PostgreSQL database users: could not translate host name "None" to address: Temporary failure in name resolution
+
+unit-postgresql-6: 02:06:57 ERROR unit.postgresql/6.juju-log Failed to list PostgreSQL database users: could not translate host name "None" to address: Temporary failure in name resolution
+
+unit-postgresql-6: 02:07:07 ERROR unit.postgresql/6.juju-log Failed to list PostgreSQL database users: could not translate host name "None" to address: Temporary failure in name resolution
+
+unit-postgresql-6: 02:07:18 ERROR unit.postgresql/6.juju-log Failed to list PostgreSQL database users: could not translate host name "None" to address: Temporary failure in name resolution
+
+unit-postgresql-6: 02:07:29 ERROR unit.postgresql/6.juju-log Failed to list PostgreSQL database users: could not translate host name "None" to address: Temporary failure in name resolution
+
+unit-postgresql-6: 02:07:40 ERROR unit.postgresql/6.juju-log Failed to list PostgreSQL database users: could not translate host name "None" to address: Temporary failure in name resolution
+
+unit-postgresql-6: 02:07:48 ERROR unit.postgresql/6.juju-log Failed to list PostgreSQL database users: could not translate host name "None" to address: Temporary failure in name resolution
+
+unit-postgresql-6: 02:07:57 ERROR unit.postgresql/6.juju-log Failed to list PostgreSQL database users: could not translate host name "None" to address: Temporary failure in name resolution
+
+unit-postgresql-6: 02:08:08 ERROR unit.postgresql/6.juju-log Failed to list PostgreSQL database users: could not translate host name "None" to address: Temporary failure in name resolution
+
+
+[32mINFO    [0m pytest_operator.plugin:plugin.py:947 Forgetting model main...
