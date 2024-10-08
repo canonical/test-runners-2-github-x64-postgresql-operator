@@ -1,0 +1,75 @@
+[32mINFO    [0m integration.ha_tests.test_async_replication:test_async_replication.py:86 Destroying second model
+[32mINFO    [0m pytest_operator.plugin:plugin.py:903 Model status:
+
+Model  Controller           Cloud/Region         Version  SLA          Timestamp
+test   localhost-localhost  localhost/localhost  3.4.5    unsupported  01:42:17Z
+
+App                  Version  Status   Scale  Charm                Channel      Rev  Exposed  Message
+data-integrator               blocked      1  data-integrator      latest/edge   71  no       Please relate the data-integrator with the desired product
+postgresql           14.13    active       3  postgresql                          0  no       
+postgresql-test-app           active       1  postgresql-test-app  latest/edge  256  no       
+
+Unit                    Workload     Agent      Machine  Public address  Ports     Message
+data-integrator/0*      blocked      idle       3        10.36.8.7                 Please relate the data-integrator with the desired product
+postgresql-test-app/0*  active       idle       4        10.36.8.68                
+postgresql/0            error        idle       0        10.36.8.96                hook failed: "database-peers-relation-changed"
+postgresql/1            waiting      executing  1        10.36.8.52      5432/tcp  awaiting for cluster to start
+postgresql/2*           maintenance  executing  2        10.36.8.204     5432/tcp  reconfiguring cluster
+
+Machine  State    Address      Inst id        Base          AZ  Message
+0        started  10.36.8.96   juju-406af5-0  ubuntu@22.04      Running
+1        started  10.36.8.52   juju-406af5-1  ubuntu@22.04      Running
+2        started  10.36.8.204  juju-406af5-2  ubuntu@22.04      Running
+3        started  10.36.8.7    juju-406af5-3  ubuntu@22.04      Running
+4        started  10.36.8.68   juju-406af5-4  ubuntu@22.04      Running
+
+[32mINFO    [0m pytest_operator.plugin:plugin.py:909 Juju error logs:
+
+machine-2: 01:37:40 ERROR juju.worker.dependency "kvm-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-2: 01:37:40 ERROR juju.worker.dependency "lxd-container-provisioner" manifold worker returned unexpected error: container types not yet available
+unit-postgresql-2: 01:37:42 ERROR juju.worker.meterstatus error running "meter-status-changed": charm missing from disk
+machine-1: 01:37:45 ERROR juju.worker.dependency "kvm-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-1: 01:37:45 ERROR juju.worker.dependency "lxd-container-provisioner" manifold worker returned unexpected error: container types not yet available
+unit-postgresql-1: 01:37:46 ERROR juju.worker.meterstatus error running "meter-status-changed": charm missing from disk
+machine-3: 01:37:46 ERROR juju.worker.dependency "lxd-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-3: 01:37:46 ERROR juju.worker.dependency "kvm-container-provisioner" manifold worker returned unexpected error: container types not yet available
+unit-data-integrator-0: 01:37:48 ERROR juju.worker.meterstatus error running "meter-status-changed": charm missing from disk
+machine-0: 01:38:29 ERROR juju.worker.dependency "kvm-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-0: 01:38:29 ERROR juju.worker.dependency "lxd-container-provisioner" manifold worker returned unexpected error: container types not yet available
+unit-postgresql-0: 01:38:29 ERROR juju.worker.meterstatus error running "meter-status-changed": charm missing from disk
+unit-postgresql-0: 01:39:15 ERROR unit.postgresql/0.juju-log An exception occurred when installing charmed-postgresql. Reason: Snap: 'charmed-postgresql'; command ['snap', 'install', 'charmed-postgresql', '--channel="14/stable"', '--revision="124"'] failed with output = ''
+machine-4: 01:39:17 ERROR juju.worker.dependency "lxd-container-provisioner" manifold worker returned unexpected error: container types not yet available
+machine-4: 01:39:17 ERROR juju.worker.dependency "kvm-container-provisioner" manifold worker returned unexpected error: container types not yet available
+unit-postgresql-test-app-0: 01:39:18 ERROR juju.worker.meterstatus error running "meter-status-changed": charm missing from disk
+unit-postgresql-2: 01:40:52 ERROR unit.postgresql/2.juju-log database-peers:2: Failed to list PostgreSQL database users: could not translate host name "None" to address: Temporary failure in name resolution
+
+unit-postgresql-0: 01:42:12 ERROR unit.postgresql/0.juju-log database-peers:2: Uncaught exception while in charm code:
+Traceback (most recent call last):
+  File "/var/lib/juju/agents/unit-postgresql-0/charm/./src/charm.py", line 1879, in <module>
+    main(PostgresqlOperatorCharm)
+  File "/var/lib/juju/agents/unit-postgresql-0/charm/venv/ops/main.py", line 553, in main
+    manager.run()
+  File "/var/lib/juju/agents/unit-postgresql-0/charm/venv/ops/main.py", line 529, in run
+    self._emit()
+  File "/var/lib/juju/agents/unit-postgresql-0/charm/venv/ops/main.py", line 515, in _emit
+    self.framework.reemit()
+  File "/var/lib/juju/agents/unit-postgresql-0/charm/venv/ops/framework.py", line 863, in reemit
+    self._reemit()
+  File "/var/lib/juju/agents/unit-postgresql-0/charm/venv/ops/framework.py", line 943, in _reemit
+    custom_handler(event)
+  File "/var/lib/juju/agents/unit-postgresql-0/charm/lib/charms/tempo_k8s/v1/charm_tracing.py", line 735, in wrapped_function
+    return callable(*args, **kwargs)  # type: ignore
+  File "/var/lib/juju/agents/unit-postgresql-0/charm/./src/charm.py", line 535, in _on_peer_relation_changed
+    self.update_config()
+  File "/var/lib/juju/agents/unit-postgresql-0/charm/lib/charms/tempo_k8s/v1/charm_tracing.py", line 735, in wrapped_function
+    return callable(*args, **kwargs)  # type: ignore
+  File "/var/lib/juju/agents/unit-postgresql-0/charm/./src/charm.py", line 1634, in update_config
+    self._patroni.render_patroni_yml_file(
+  File "/var/lib/juju/agents/unit-postgresql-0/charm/lib/charms/tempo_k8s/v1/charm_tracing.py", line 735, in wrapped_function
+    return callable(*args, **kwargs)  # type: ignore
+  File "/var/lib/juju/agents/unit-postgresql-0/charm/src/cluster.py", line 606, in render_patroni_yml_file
+    version=self.get_postgresql_version().split(".")[0],
+AttributeError: 'NoneType' object has no attribute 'split'
+unit-postgresql-0: 01:42:12 ERROR juju.worker.uniter.operation hook "database-peers-relation-changed" (via hook dispatching script: dispatch) failed: exit status 1
+
+[32mINFO    [0m pytest_operator.plugin:plugin.py:991 Forgetting model main...
